@@ -55,11 +55,11 @@ def create_app():
     redis.init_app(app)
 
     #  Background parsing
-    if not is_running_from_reloader():
-        get_info()
-        scheduler = BackgroundScheduler()
-        scheduler.add_job(func=get_info, trigger="interval", seconds=TIMEOUT)
-        scheduler.start()
-        atexit.register(lambda: scheduler.shutdown())
+    #if not is_running_from_reloader():
+    #    get_info()
+    #    scheduler = BackgroundScheduler()
+    #    scheduler.add_job(func=get_info, trigger="interval", seconds=TIMEOUT)
+    #    scheduler.start()
+    #    atexit.register(lambda: scheduler.shutdown())
 
     return app
