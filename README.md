@@ -1,1 +1,1 @@
-"# retardedota" 
+# retardedota.xyz

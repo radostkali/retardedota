@@ -55,7 +55,6 @@ export default {
           if (data.data) {
             this.data = data.data;
           }
-          console.log(data);
         });
     },
   },
