@@ -3,15 +3,31 @@ from config import MONGO_URI, MONGO_DB
 from datetime import datetime, timedelta
 
 
+def mongo_auth():
+    # 'mongodb://dotaapp:dotaapp1dotaapp@ds125525.mlab.com:25525/heroku_xjf41300'
+    splited = MONGO_URI.split('//')[-1].split('&')[0]
+    host = splited.split('@')[-1].split(':')[0]
+    port = int(splited.split('@')[-1].split(':')[-1].split('/')[0])
+    base = splited.split('@')[-1].split('/')[-1]
+    user = splited.split('@')[0].split(':')[0]
+    passw = splited.split('@')[0].split(':')[1]
+    connection = MongoClient(host, port)
+    print(user)
+    print(passw)
+    db = connection[base]
+    db.authenticate(user, passw)
+    return db
+
+
 def meta_heroes():
-    mongo_inst = MongoClient(MONGO_URI)[MONGO_DB]
+    mongo_inst = mongo_auth()
     collection = mongo_inst.meta_heroes
     heroes = [i['hero_name'] for i in collection.find({})]
     return heroes
 
 
 def check_user(dota_id):
-    mongo_inst = MongoClient(MONGO_URI)[MONGO_DB]
+    mongo_inst = mongo_auth()
     collection = mongo_inst.achievements
     try:
         user = collection.find_one({'dota_id': dota_id})
@@ -33,7 +49,7 @@ def check_user(dota_id):
 
 
 def post_user(dota_id, achievements, personaname, avatar, friends):
-    mongo_inst = MongoClient(MONGO_URI)[MONGO_DB]
+    mongo_inst = mongo_auth()
     collection = mongo_inst.achievements
     user = collection.find_one({'dota_id': dota_id})
     status = 'complete' if achievements else 'no_games'
@@ -66,7 +82,7 @@ def post_user(dota_id, achievements, personaname, avatar, friends):
 
 def open_dota_limit():
     request_number = 8
-    mongo_inst = MongoClient(MONGO_URI)[MONGO_DB]
+    mongo_inst = mongo_auth()
     collection = mongo_inst.open_dota_limit
     reqs = collection.find().sort('timestamp', DESCENDING)
     count = 0
@@ -93,4 +109,4 @@ def open_dota_limit():
 
 
 if __name__ == '__main__':
-    open_dota_limit()
+    r = mongo_auth()
