@@ -11,7 +11,7 @@ def mongo_auth():
     base = splited.split('@')[-1].split('/')[-1]
     user = splited.split('@')[0].split(':')[0]
     passw = splited.split('@')[0].split(':')[1]
-    connection = MongoClient(host, port)
+    connection = MongoClient(host, port, retryWrites=False)
     print(user)
     print(passw)
     db = connection[base]
