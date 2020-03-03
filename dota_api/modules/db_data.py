@@ -1,17 +1,17 @@
 from pymongo import MongoClient, DESCENDING
-from config import MONGO_URI
+from config import MONGO_URI, MONGO_DB
 from datetime import datetime, timedelta
 
 
 def meta_heroes():
-    mongo_inst = MongoClient(MONGO_URI)['dota']
+    mongo_inst = MongoClient(MONGO_URI)[MONGO_DB]
     collection = mongo_inst.meta_heroes
     heroes = [i['hero_name'] for i in collection.find({})]
     return heroes
 
 
 def check_user(dota_id):
-    mongo_inst = MongoClient(MONGO_URI)['dota']
+    mongo_inst = MongoClient(MONGO_URI)[MONGO_DB]
     collection = mongo_inst.achievements
     try:
         user = collection.find_one({'dota_id': dota_id})
@@ -33,7 +33,7 @@ def check_user(dota_id):
 
 
 def post_user(dota_id, achievements, personaname, avatar, friends):
-    mongo_inst = MongoClient(MONGO_URI)['dota']
+    mongo_inst = MongoClient(MONGO_URI)[MONGO_DB]
     collection = mongo_inst.achievements
     user = collection.find_one({'dota_id': dota_id})
     status = 'complete' if achievements else 'no_games'
@@ -66,7 +66,7 @@ def post_user(dota_id, achievements, personaname, avatar, friends):
 
 def open_dota_limit():
     request_number = 8
-    mongo_inst = MongoClient(MONGO_URI)['dota']
+    mongo_inst = MongoClient(MONGO_URI)[MONGO_DB]
     collection = mongo_inst.open_dota_limit
     reqs = collection.find().sort('timestamp', DESCENDING)
     count = 0

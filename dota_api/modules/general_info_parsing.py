@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from config import MONGO_URI
+from config import MONGO_URI, MONGO_DB
 from pymongo import MongoClient
 
 
@@ -29,8 +29,7 @@ def get_meta_heroes():
                     'hero_name': hero_name,
                     'hero_winrate': hero_winrate
                 })
-        mongo = MongoClient(MONGO_URI)['dota']
+        mongo = MongoClient(MONGO_URI)[MONGO_DB]
         collection = mongo.meta_heroes
         collection.remove({})
         collection.insert(heroes)
-        print('Meta heroes parsed')

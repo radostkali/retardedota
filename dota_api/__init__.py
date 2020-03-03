@@ -16,7 +16,7 @@ from dota_api.modules.general_info_parsing import get_info
 TIMEOUT = 86400  # One in a day
 
 
-cors = CORS()
+cors = CORS(resources={r'/*': {'origins': '*'}})
 mongo = PyMongo()
 redis = FlaskRedis()
 
