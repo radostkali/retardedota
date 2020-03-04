@@ -35,7 +35,7 @@ class AchivesCalculator:
         self.achievements['one_love_hero']['status'] = 0
         if self.achievements['one_hero_play']['status'] == 1:
             winrate = self.data['most_played_hero']['hero_winrate']
-            if winrate < 40:
+            if winrate <= 40:
                 self.achievements['one_love_hero']['status'] = 1
                 self.achievements['one_love_hero']['details'] = {
                     'games': self.data['most_played_hero']['hero_games'],
