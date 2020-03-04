@@ -1,9 +1,10 @@
-from flask import Blueprint, jsonify, render_template, request
+from flask import Blueprint, jsonify, render_template, request, current_app, send_from_directory
 from dota_api.modules.celery_tasks import task_to_analyze
 from dota_api.modules.steam_id_getter import GetSteamId
 from dota_api.modules.achieve_serializer import serialize
 from dota_api import mongo
 from datetime import datetime, timedelta
+import os
 
 
 api = Blueprint('main', __name__)
@@ -36,6 +37,24 @@ def catch_all(path):
     return render_template("index.html")
 
 
+@api.route('/service-worker.js', methods=['GET'])
+def service_worker():
+    dist = os.path.join(os.path.dirname(current_app.root_path), 'dist')
+    return send_from_directory(dist, 'service-worker.js')
+
+
+@api.route('/manifest.json', methods=['GET'])
+def manifest():
+    dist = os.path.join(os.path.dirname(current_app.root_path), 'dist')
+    return send_from_directory(dist, 'manifest.json')
+
+
+@api.route('/img/<path:filename>', methods=['GET'])
+def img(filename):
+    dist = os.path.join(os.path.dirname(current_app.root_path), 'dist', 'img')
+    return send_from_directory(dist, filename)
+
+
 @api.route('/api/check_user', methods=['POST'])
 def check_user():
     input_str = request.json['input']
@@ -46,7 +65,7 @@ def check_user():
     return jsonify({'status': 'success', 'dota_id': dota_id})
 
 
-@api.route('/api/check_status/<dota_id>', methods=['GET'])
+@api.route('/api/check_status/<int:dota_id>', methods=['GET'])
 def check_status(dota_id):
     collection = mongo.db.achievements
     try:

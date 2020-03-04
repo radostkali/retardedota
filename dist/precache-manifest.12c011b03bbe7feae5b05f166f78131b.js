@@ -72,7 +72,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/cosplay/zombie.jpg"
   },
   {
-    "revision": "edd00caf84f51322ba04e4f02dbc0e1b",
+    "revision": "807c1c0755b4876fb248e82b3c353cd9",
     "url": "/index.html"
   },
   {
