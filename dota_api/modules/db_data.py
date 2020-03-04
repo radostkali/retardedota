@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 def mongo_auth():
     # 'mongodb://dotaapp:dotaapp1dotaapp@ds125525.mlab.com:25525/heroku_xjf41300'
-    splited = MONGO_URI.split('//')[-1].split('&')[0]
+    splited = MONGO_URI.split('//')[-1]
     host = splited.split('@')[-1].split(':')[0]
     port = int(splited.split('@')[-1].split(':')[-1].split('/')[0])
     base = splited.split('@')[-1].split('/')[-1]
@@ -59,7 +59,7 @@ def post_user(dota_id, achievements, personaname, avatar, friends):
             'friends': friends,
             'timestamp': datetime.utcnow(),
             'status': status,
-            'achievements': achievements
+            'achievements': {i: achievements[i] for i in achievements if achievements[i]['status'] != 0}
         })
     else:
         collection.update_one(
@@ -71,7 +71,7 @@ def post_user(dota_id, achievements, personaname, avatar, friends):
                     'avatar': avatar,
                     'friends': friends,
                     'status': status,
-                    'achievements': achievements
+                    'achievements': {i: achievements[i] for i in achievements if achievements[i]['status'] != 0}
                 }
             }
         )
