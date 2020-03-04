@@ -51,6 +51,7 @@ def post_user(dota_id, achievements, personaname, avatar, friends):
     collection = mongo_inst.achievements
     user = collection.find_one({'dota_id': dota_id})
     status = 'complete' if achievements else 'no_games'
+    achieves = {i: achievements[i] for i in achievements if achievements[i]['status'] != 0} if achievements else None
     if not user:
         collection.insert({
             'dota_id': dota_id,
@@ -59,7 +60,7 @@ def post_user(dota_id, achievements, personaname, avatar, friends):
             'friends': friends,
             'timestamp': datetime.utcnow(),
             'status': status,
-            'achievements': {i: achievements[i] for i in achievements if achievements[i]['status'] != 0}
+            'achievements': achieves
         })
     else:
         collection.update_one(
@@ -71,7 +72,7 @@ def post_user(dota_id, achievements, personaname, avatar, friends):
                     'avatar': avatar,
                     'friends': friends,
                     'status': status,
-                    'achievements': {i: achievements[i] for i in achievements if achievements[i]['status'] != 0}
+                    'achievements': achieves
                 }
             }
         )

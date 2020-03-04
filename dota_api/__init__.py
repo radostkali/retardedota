@@ -10,7 +10,7 @@ import atexit
 import datetime
 import json
 
-from dota_api.modules.general_info_parsing import get_info
+from dota_api.modules.scheduler import get_info
 
 
 TIMEOUT = 86400  # One in a day

@@ -5,6 +5,13 @@ from dota_api.modules.db_data import mongo_auth
 
 def get_info():
     get_meta_heroes()
+    remove_blanked()
+
+
+def remove_blanked():
+    mongo = mongo_auth()
+    collection = mongo.achievements
+    collection.remove({'status': 'no_games'})
 
 
 def get_meta_heroes():
