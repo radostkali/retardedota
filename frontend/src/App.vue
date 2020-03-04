@@ -10,7 +10,7 @@
         </div>
         <div class="column">
           <div class="content has-text-centered">
-            This is an open source project available on <a href="http://github.com" class="link">github</a>.
+            This is an open source project available on <a href="https://github.com/radostkali/retardedota" class="link">github</a>.
           </div>
         </div>
       </div>

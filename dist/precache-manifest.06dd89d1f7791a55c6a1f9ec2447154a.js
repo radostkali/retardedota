@@ -72,7 +72,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/cosplay/zombie.jpg"
   },
   {
-    "revision": "807c1c0755b4876fb248e82b3c353cd9",
+    "revision": "1057474e951417ab1f5436dae18bb9b6",
     "url": "/index.html"
   },
   {
@@ -88,7 +88,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/css/about.be3ad049.css"
   },
   {
-    "revision": "c93f697df3291f2e3ea2",
+    "revision": "54022856a58a0190b20d",
     "url": "/static/css/app.2b8413b3.css"
   },
   {
@@ -96,8 +96,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/about.a0b39f37.js"
   },
   {
-    "revision": "c93f697df3291f2e3ea2",
-    "url": "/static/js/app.dcda4fe3.js"
+    "revision": "54022856a58a0190b20d",
+    "url": "/static/js/app.3c3600d7.js"
   },
   {
     "revision": "73a5ba9115766f4df291",

@@ -35,6 +35,7 @@ class AchivesCalculator:
         self.achievements['one_love_hero']['status'] = 0
         if self.achievements['one_hero_play']['status'] == 1:
             winrate = self.data['most_played_hero']['hero_winrate']
+            print(winrate)
             if winrate <= 40:
                 self.achievements['one_hero_play']['status'] = -1
                 self.achievements['one_love_hero']['status'] = 1
@@ -271,14 +272,14 @@ class AchivesCalculator:
 if __name__ == '__main__':
     # data = OpenDotaApi('120150156').run()  # me
     # data = OpenDotaApi('111620041').run()  # highest mmr
-    data = OpenDotaApi('122186114').run()  # techster
+    data = OpenDotaApi('165406803').run()  # techster
     # data = OpenDotaApi('836727572').run()  # budger
     # data = OpenDotaApi('250114507').run()  # Iceberg
     # data = OpenDotaApi('19672354').run()  # Notail
     # data = OpenDotaApi('43276219').run()  # EE
     # data = OpenDotaApi('132851371').run()  # Ramzes
 
-    data['meta_heroes'] = meta_heroes()
+    data['meta_heroes'] = ['Ogre']
 
     # pprint(data)
     c = AchivesCalculator(data)
