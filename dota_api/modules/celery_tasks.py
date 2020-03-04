@@ -13,16 +13,16 @@ app = Celery('dota_api', broker=BROKER_URL)
 def task_to_analyze(dota_id):
     check = check_user(dota_id)
     if check:
-        return {'status': 'success'}
+        return {'dota_id': dota_id, 'status': 'success'}
     data = OpenDotaApi(dota_id).run()
     if data is None:
-        return {'status': 'error'}
+        return {'dota_id': dota_id, 'status': 'error'}
     data['meta_heroes'] = meta_heroes()
     result = AchivesCalculator(data).run()
     post = post_user(dota_id, result, data['personaname'], data['avatar'], data['friends'])
     if post:
-        return {'status': 'success'}
+        return {'dota_id': dota_id, 'status': 'success'}
     else:
-        return {'status': 'error'}
+        return {'dota_id': dota_id, 'status': 'error'}
 
   # celery -A dota_api.modules.celery_tasks worker --loglevel=info -P solo

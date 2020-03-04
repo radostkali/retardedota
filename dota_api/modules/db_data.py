@@ -1,5 +1,5 @@
 from pymongo import MongoClient, DESCENDING
-from config import MONGO_URI, MONGO_DB
+from config import MONGO_URI
 from datetime import datetime, timedelta
 
 
@@ -12,8 +12,6 @@ def mongo_auth():
     user = splited.split('@')[0].split(':')[0]
     passw = splited.split('@')[0].split(':')[1]
     connection = MongoClient(host, port, retryWrites=False)
-    print(user)
-    print(passw)
     db = connection[base]
     db.authenticate(user, passw)
     return db

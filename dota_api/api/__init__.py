@@ -75,5 +75,6 @@ def check_status(dota_id):
         else:
             return jsonify(user_info(user, 'complete'))
     elif user['status'] == 'no_games':
+        print(user)
         return jsonify(user_info(user, 'no_games'))
 

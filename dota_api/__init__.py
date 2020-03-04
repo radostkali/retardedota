@@ -38,7 +38,7 @@ def create_app():
     #  Create an application.
     app = Flask(
         __name__,
-        instance_relative_config=True,
+        instance_relative_config=False,
         template_folder="../dist",
         static_folder="../dist/static"
     )
