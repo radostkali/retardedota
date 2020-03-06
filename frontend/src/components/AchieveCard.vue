@@ -56,7 +56,7 @@ export default {
 }
 
 .card-size-0 {
-  max-width: 15rem;
+  max-width: 16rem;
 }
 
 .card-size-1 {

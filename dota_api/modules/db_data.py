@@ -7,6 +7,9 @@ def mongo_auth():
     # 'mongodb://dotaapp:dotaapp1dotaapp@ds125525.mlab.com:25525/heroku_xjf41300'
     splited = MONGO_URI.split('//')[-1]
     host = splited.split('@')[-1].split(':')[0]
+    if host == 'localhost':
+        db = MongoClient(MONGO_URI)
+        return db.db
     port = int(splited.split('@')[-1].split(':')[-1].split('/')[0])
     base = splited.split('@')[-1].split('/')[-1]
     user = splited.split('@')[0].split(':')[0]

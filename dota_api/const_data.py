@@ -189,7 +189,7 @@ ACHIEVEMENTS = {
         },
     'machine':
         {
-            'priority': 3,
+            'priority': 2,
             'name': 'machine',
             'status': None,
             'details': {

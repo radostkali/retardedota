@@ -3,7 +3,9 @@
     <no-user v-if="status === 'not_found'"></no-user>
     <no-games v-if="status === 'no_games'"></no-games>
     <pending v-if="status === 'pending'" :username="username" :dota_id="dota_id"></pending>
-    <complete v-if="status === 'complete'" :username="username" :avatar="avatar"></complete>
+    <complete v-if="status === 'complete'"
+      :username="username" :avatar="avatar"
+      :update="update" :dota_id="dota_id" :rate="rate"></complete>
     <quotes v-if="status == 'pending' && !data"></quotes>
     <user-data v-if="data" :data="data" :friends="friends"></user-data>
     <b-loading :active.sync="loading"></b-loading>
@@ -38,6 +40,8 @@ export default {
       avatar: null,
       friends: null,
       data: null,
+      update: false,
+      rate: 0,
     };
   },
   methods: {
@@ -52,8 +56,10 @@ export default {
           this.username = data.personaname;
           this.avatar = data.avatar;
           this.friends = data.friends;
+          this.update = data.update;
           if (data.data) {
             this.data = data.data;
+            this.rate = data.rate;
           }
         });
     },

@@ -10,7 +10,6 @@
         </h2>
       </div>
     </div>
-    <b-loading :active.sync="loading"></b-loading>
   </div>
 </template>
 
@@ -21,15 +20,22 @@ export default {
   data() {
     return {
       quote: null,
+      timer: null,
     };
   },
   methods: {
-    newQuote() {
-      this.quote = randQuote();
+    quoteTimer() {
+      this.timer = setInterval(() => {
+        this.quote = randQuote();
+      }, 10000);
     },
+  },
+  beforeDestroy() {
+    clearInterval(this.timer);
   },
   created() {
     this.quote = randQuote();
+    this.quoteTimer();
   },
 };
 </script>

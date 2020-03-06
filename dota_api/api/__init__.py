@@ -26,8 +26,11 @@ def user_info(mongo_user, status):
         'avatar': mongo_user['avatar'],
         'friends': mongo_user['friends'] if len(mongo_user['friends']) else None,
     }
+    last_check = datetime.utcnow() - mongo_user['timestamp']
+    user['update'] = True if last_check > timedelta(days=1) and status == 'complete' else False
     if mongo_user['achievements']:
         user['data'] = serialize(mongo_user['achievements'])
+        user['rate'] = max([mongo_user['achievements'][i]['priority'] for i in mongo_user['achievements']])
     return user
 
 
@@ -87,13 +90,22 @@ def check_status(dota_id):
         else:
             return jsonify(pending_user)
     elif user['status'] == 'complete':
-        last_check = datetime.utcnow() - user['timestamp']
-        if last_check > timedelta(days=1):
-            task_to_analyze.apply_async(args=[dota_id])
-            return jsonify(user_info(user, 'pending'))
-        else:
-            return jsonify(user_info(user, 'complete'))
+        return jsonify(user_info(user, 'complete'))
     elif user['status'] == 'no_games':
-        print(user)
         return jsonify(user_info(user, 'no_games'))
 
+
+@api.route('/api/update', methods=['POST'])
+def update():
+    input_str = request.json['dota_id']
+    dota_id = GetSteamId().define_id(input_str)
+    if not dota_id:
+        return jsonify({'status': 'error', 'message': 'Wrong ID.'})
+    collection = mongo.db.achievements
+    user = collection.find_one({'dota_id': dota_id})
+    last_check = datetime.utcnow() - user['timestamp']
+    if last_check > timedelta(days=1):
+        task_to_analyze.apply_async(args=[dota_id])
+        return jsonify({'status': 'success', 'dota_id': dota_id})
+    else:
+        return jsonify({'status': 'error', 'message': 'Can\'t update now.'})
