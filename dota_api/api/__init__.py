@@ -31,6 +31,8 @@ def user_info(mongo_user, status):
     if mongo_user['achievements']:
         user['data'] = serialize(mongo_user['achievements'])
         user['rate'] = max([mongo_user['achievements'][i]['priority'] for i in mongo_user['achievements']])
+    if 'patreon' in mongo_user:
+        user['patreon'] = mongo_user['patreon']
     return user
 
 

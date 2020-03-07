@@ -183,7 +183,7 @@ def syich(achieve):
 
 def bad_internet(achieve):
     name = 'Bad internet connection'
-    detail = '%d abandoned games' % achieve['details']['abandoned']
+    detail = '%d abandoned games' % achieve['details']['games']
     description = 'The retard has <accent>%d</accent> abandoned games on the account. Man. Please. Fix it.' % \
                   (achieve['details']['games'])
     detail_img = 'https://gamepedia.cursecdn.com/dota2_gamepedia/thumb/4/4d/Charge_of_Darkness_icon.png/' \

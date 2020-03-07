@@ -5,7 +5,7 @@
       <div class="columns">
         <div class="column">
           <div class="content has-text-centered">
-            <a href="/">Home</a>
+            Become a <a href="https://www.patreon.com/retardedota">Patreon</a> to support Retarded Dota.
           </div>
         </div>
         <div class="column">
@@ -70,7 +70,7 @@ $colors: (
 // Card
 $card-color: #afafaf;
 $card-header-color: $white;
-$card-background-color: rgb(22, 22, 22);
+$card-background-color: #161616;
 $card-footer-border-top: $light;
 
 // Title

@@ -112,7 +112,7 @@ ACHIEVEMENTS = {
             'status': None,
             'details':
                 {
-                    'abandoned': None
+                    'games': None
                 }
         },
     'mmr_addict':

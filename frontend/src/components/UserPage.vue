@@ -4,7 +4,7 @@
     <no-games v-if="status === 'no_games'"></no-games>
     <pending v-if="status === 'pending'" :username="username" :dota_id="dota_id"></pending>
     <complete v-if="status === 'complete'"
-      :username="username" :avatar="avatar"
+      :username="username" :avatar="avatar" :patreon="patreon"
       :update="update" :dota_id="dota_id" :rate="rate"></complete>
     <quotes v-if="status == 'pending' && !data"></quotes>
     <user-data v-if="data" :data="data" :friends="friends"></user-data>
@@ -41,6 +41,7 @@ export default {
       friends: null,
       data: null,
       update: false,
+      patreon: null,
       rate: 0,
     };
   },
@@ -60,6 +61,7 @@ export default {
           if (data.data) {
             this.data = data.data;
             this.rate = data.rate;
+            this.patreon = data.patreon;
           }
         });
     },

@@ -14,6 +14,14 @@
                 <div class="user-text">
                   <h1 class="title">
                     {{username ? username : 'User'}}
+                    <figure v-if="patreon" class="image is-32x32 img-link"
+                      :title="(patreon === 'premium') ?
+                      'Premium non-retard supporter' :
+                      'Project supporter'">
+                      <img :src="(patreon === 'premium') ?
+                      'https://gamepedia.cursecdn.com/dota2_gamepedia/d/d2/Emoticon_dac15_cool.gif?version=55cbf725ab03cb27a5cf58c091c02189' :
+                      'https://gamepedia.cursecdn.com/dota2_gamepedia/b/bd/Emoticon_dealwithit.gif?version=7ba89329d74fdb19bea42cf64411912d'">
+                    </figure>
                   </h1>
                   <h2 class="subtitle is-primary">
                     ID {{$route.params.dota_id}}
@@ -60,7 +68,7 @@ import IdInput from './IdInput.vue';
 const urlUpdate = '/api/update';
 
 export default {
-  props: ['username', 'avatar', 'update', 'dota_id', 'rate'],
+  props: ['username', 'avatar', 'update', 'dota_id', 'rate', 'patreon'],
   components: { 'id-input': IdInput },
   methods: {
     updateData() {
@@ -131,10 +139,13 @@ export default {
 
 .rate-block {
   display: flex;
+  height: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: fit-content;
+  background-color: #161616;
+  padding: 0.7rem 1rem;
 }
 
 @media screen and (max-width: 600px) {
