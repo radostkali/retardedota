@@ -72,7 +72,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/cosplay/zombie.jpg"
   },
   {
-    "revision": "72f18f3bc0738666356a2e52f83d47cd",
+    "revision": "c6535f481ac1119ae07425b2513dccbf",
     "url": "/index.html"
   },
   {
@@ -84,11 +84,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/robots.txt"
   },
   {
-    "revision": "3c59083c49fdd7885186",
+    "revision": "0dd3b653f0ca8e565e1b",
     "url": "/static/css/about.83bff2c5.css"
   },
   {
-    "revision": "594a85a93779517d126f",
+    "revision": "d146c30fb61681854f73",
     "url": "/static/css/app.36f28c34.css"
   },
   {
@@ -100,12 +100,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/img/notfound.35a1ccd4.png"
   },
   {
-    "revision": "3c59083c49fdd7885186",
-    "url": "/static/js/about.9995fa99.js"
+    "revision": "0dd3b653f0ca8e565e1b",
+    "url": "/static/js/about.f8c2af61.js"
   },
   {
-    "revision": "594a85a93779517d126f",
-    "url": "/static/js/app.3127bee2.js"
+    "revision": "d146c30fb61681854f73",
+    "url": "/static/js/app.30af5f46.js"
   },
   {
     "revision": "73a5ba9115766f4df291",
