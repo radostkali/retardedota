@@ -4,12 +4,18 @@
     <footer class="footer">
       <div class="columns">
         <div class="column">
-          <div class="content has-text-centered">
-            Become a <a href="https://www.patreon.com/retardedota">Patreon</a> to support Retarded Dota.
+          <div class="content has-text-centered patreon">
+            Become a
+            <a href="https://www.patreon.com/retardedota">
+                <img src="./assets/Patreon_White.png" class="img">
+            </a>
+            to
+            <a class="pat-link" href="https://www.patreon.com/retardedota">support</a>
+            Retarded Dota.
           </div>
         </div>
         <div class="column">
-          <div class="content has-text-centered">
+          <div class="content has-text-centered git">
             This is an open source project available on <a href="https://github.com/radostkali/retardedota" class="link">github</a>.
           </div>
         </div>
@@ -30,6 +36,27 @@ accent {
 
 html {
   background: #222222 !important;
+}
+
+.patreon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pat-link {
+  margin: 0 0.4rem;
+}
+
+.img {
+  display: inline-block;
+  padding-top: 0.6rem;
+  height: 71px;
+  margin: 0 0.5rem;
+}
+
+.git {
+  margin-top: 1.7rem;
 }
 
 // Import Bulma's core

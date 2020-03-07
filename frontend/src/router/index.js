@@ -16,6 +16,11 @@ const routes = [
     props: true,
     component: () => import(/* webpackChunkName: "about" */ '../components/UserPage.vue'),
   },
+  {
+    path: '*',
+    name: 'not-found',
+    component: () => import(/* webpackChunkName: "about" */ '../components/NotFound.vue'),
+  },
 ];
 
 const router = new VueRouter({

@@ -70,7 +70,7 @@ def check_user():
     return jsonify({'status': 'success', 'dota_id': dota_id})
 
 
-@api.route('/api/check_status/<int:dota_id>', methods=['GET'])
+@api.route('/api/check_status/<dota_id>', methods=['GET'])
 def check_status(dota_id):
     collection = mongo.db.achievements
     try:

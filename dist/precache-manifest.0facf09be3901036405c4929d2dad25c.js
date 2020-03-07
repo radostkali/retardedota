@@ -72,7 +72,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/cosplay/zombie.jpg"
   },
   {
-    "revision": "3f1f91d47a8ea5b8cdb9426c83963ebc",
+    "revision": "72f18f3bc0738666356a2e52f83d47cd",
     "url": "/index.html"
   },
   {
@@ -84,20 +84,28 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/robots.txt"
   },
   {
-    "revision": "2e7fd552e38bd02d3865",
-    "url": "/static/css/about.ac4cf0f3.css"
+    "revision": "3c59083c49fdd7885186",
+    "url": "/static/css/about.83bff2c5.css"
   },
   {
-    "revision": "772607a5e58292082986",
-    "url": "/static/css/app.2b8413b3.css"
+    "revision": "594a85a93779517d126f",
+    "url": "/static/css/app.36f28c34.css"
   },
   {
-    "revision": "2e7fd552e38bd02d3865",
-    "url": "/static/js/about.37718790.js"
+    "revision": "a3a9064ebaa20471317b3d53eef4f2ae",
+    "url": "/static/img/Patreon_White.a3a9064e.png"
   },
   {
-    "revision": "772607a5e58292082986",
-    "url": "/static/js/app.f49c9bd8.js"
+    "revision": "35a1ccd4369fab494b8c5647765872d3",
+    "url": "/static/img/notfound.35a1ccd4.png"
+  },
+  {
+    "revision": "3c59083c49fdd7885186",
+    "url": "/static/js/about.9995fa99.js"
+  },
+  {
+    "revision": "594a85a93779517d126f",
+    "url": "/static/js/app.3127bee2.js"
   },
   {
     "revision": "73a5ba9115766f4df291",

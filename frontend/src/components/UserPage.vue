@@ -52,6 +52,7 @@ export default {
       axios.get(urlCheckStatus)
         .then((response) => {
           const { data } = response;
+          if (data.status === 'not_found') { this.$router.push({ name: 'not-found' }); }
           this.loading = false;
           this.status = data.status;
           this.username = data.personaname;

@@ -16,8 +16,8 @@
                     {{username ? username : 'User'}}
                     <figure v-if="patreon" class="image is-32x32 img-link"
                       :title="(patreon === 'premium') ?
-                      'Premium non-retard supporter' :
-                      'Project supporter'">
+                      'Premium non-retard support' :
+                      'Project support'">
                       <img :src="(patreon === 'premium') ?
                       'https://gamepedia.cursecdn.com/dota2_gamepedia/d/d2/Emoticon_dac15_cool.gif?version=55cbf725ab03cb27a5cf58c091c02189' :
                       'https://gamepedia.cursecdn.com/dota2_gamepedia/b/bd/Emoticon_dealwithit.gif?version=7ba89329d74fdb19bea42cf64411912d'">

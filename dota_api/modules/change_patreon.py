@@ -38,7 +38,7 @@ if __name__ == '__main__':
     dota_id = int(input('Dota ID: '))
     print('Choose patreon status:')
     print('0. No status')
-    print('1. Supporter')
+    print('1. Support')
     print('2. Premium')
     patreon = int(input())
     gg = False
